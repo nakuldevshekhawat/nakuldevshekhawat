@@ -1,5 +1,19 @@
 # 💫 About Me:
-AI Engineering Student | Python, Java, C++ | Aspiring Software Engineer | Exploring AI & Machine Learning
+## 🚀 About Me
+
+🔭 I'm currently working on AI & Data Science projects and strengthening my Data Structures & Algorithms skills.
+
+🌱 I'm currently learning Machine Learning, Deep Learning, and Backend Development.
+
+👯 I'm looking to collaborate on Open Source, Python, and AI-related projects.
+
+💡 I'm interested in Software Engineering, Artificial Intelligence, and Cloud Technologies.
+
+💬 Ask me about Python, Java, C++, Data Structures & Algorithms, and GitHub.
+
+🎯 Goal: To become a Software Engineer and build impactful AI-powered applications.
+
+⚡ Fun fact: I love playing cricket, listening to music, and exploring new technologies.
 
 
 ## 🌐 Socials:
