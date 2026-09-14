@@ -4,9 +4,6 @@ on:
   schedule:
     - cron: "0 0 * * *"
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 jobs:
   github-metrics:
@@ -15,7 +12,7 @@ jobs:
       contents: write
     steps:
 
-      # ── Card 1: Overall Stats (compact) ──
+      # ── Card 1: Overall Stats ──
       - uses: lowlighter/metrics@latest
         with:
           filename: profile/github-stats.svg
@@ -26,12 +23,15 @@ jobs:
           base_indepth: yes
           config_timezone: Asia/Kolkata
           config_display: large
+          config_output: svg
+          output_action: commit
+          committer_branch: main
           plugin_languages: no
           plugin_isocalendar: no
           plugin_lines: yes
           plugin_lines_sections: base
 
-      # ── Card 2: Top Languages (donut chart) ──
+      # ── Card 2: Top Languages ──
       - uses: lowlighter/metrics@latest
         with:
           filename: profile/languages.svg
@@ -41,6 +41,9 @@ jobs:
           base: ""
           config_timezone: Asia/Kolkata
           config_display: large
+          config_output: svg
+          output_action: commit
+          committer_branch: main
           plugin_languages: yes
           plugin_languages_indepth: yes
           plugin_languages_analysis_timeout: 30
@@ -62,10 +65,13 @@ jobs:
           base: ""
           config_timezone: Asia/Kolkata
           config_display: large
+          config_output: svg
+          output_action: commit
+          committer_branch: main
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
 
-      # ── Card 4: Habits / Activity ──
+      # ── Card 4: Coding Habits ──
       - uses: lowlighter/metrics@latest
         with:
           filename: profile/habits.svg
@@ -75,6 +81,9 @@ jobs:
           base: ""
           config_timezone: Asia/Kolkata
           config_display: large
+          config_output: svg
+          output_action: commit
+          committer_branch: main
           plugin_habits: yes
           plugin_habits_from: 200
           plugin_habits_days: 30
