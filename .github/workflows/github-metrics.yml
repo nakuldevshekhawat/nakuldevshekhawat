@@ -14,23 +14,70 @@ jobs:
     permissions:
       contents: write
     steps:
-      # ── Overall Stats Card ──
+
+      # ── Card 1: Overall Stats (compact) ──
       - uses: lowlighter/metrics@latest
         with:
-          filename: profile/github-metrics.svg
+          filename: profile/github-stats.svg
           token: ${{ secrets.METRICS_TOKEN }}
           user: nakuldevshekhawat
           template: classic
           base: header, activity, community, repositories
+          base_indepth: yes
           config_timezone: Asia/Kolkata
+          config_display: large
+          plugin_languages: no
+          plugin_isocalendar: no
+          plugin_lines: yes
+          plugin_lines_sections: base
+
+      # ── Card 2: Top Languages (donut chart) ──
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: profile/languages.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: nakuldevshekhawat
+          template: classic
+          base: ""
+          config_timezone: Asia/Kolkata
+          config_display: large
           plugin_languages: yes
           plugin_languages_indepth: yes
           plugin_languages_analysis_timeout: 30
           plugin_languages_categories: markup, programming
           plugin_languages_colors: github
           plugin_languages_limit: 8
-          plugin_languages_recent_load: 300
+          plugin_languages_recent_load: 400
           plugin_languages_sections: most-used
+          plugin_languages_details: percentage, bytes-size
           plugin_languages_threshold: 2%
+
+      # ── Card 3: Contribution Calendar ──
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: profile/contributions.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: nakuldevshekhawat
+          template: classic
+          base: ""
+          config_timezone: Asia/Kolkata
+          config_display: large
           plugin_isocalendar: yes
-          plugin_isocalendar_duration: half-year
+          plugin_isocalendar_duration: full-year
+
+      # ── Card 4: Habits / Activity ──
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: profile/habits.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: nakuldevshekhawat
+          template: classic
+          base: ""
+          config_timezone: Asia/Kolkata
+          config_display: large
+          plugin_habits: yes
+          plugin_habits_from: 200
+          plugin_habits_days: 30
+          plugin_habits_charts: yes
+          plugin_habits_charts_type: classic
+          plugin_habits_trim: yes
